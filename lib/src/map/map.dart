@@ -26,6 +26,13 @@ class MapControllerImpl implements MapController {
     _state.move(center, zoom);
   }
 
+  CenterZoom fitBoundsTarget(LatLngBounds bounds, FitBoundsOptions options) {
+    if (!bounds.isValid) {
+      throw ("Bounds are not valid.");
+    }
+    return _getBoundsCenterZoom(bounds, options);
+  }
+  
   void fitBounds(
     LatLngBounds bounds, {
     FitBoundsOptions options =
