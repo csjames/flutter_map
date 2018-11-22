@@ -60,6 +60,10 @@ abstract class MapController {
     LatLngBounds bounds, {
     FitBoundsOptions options,
   });
+  CenterZoom fitBoundsTarget(
+    LatLngBounds bounds,
+    FitBoundsOptions options
+  );
   bool get ready;
   Future<Null> get onReady;
   LatLng get center;
