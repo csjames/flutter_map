@@ -30,7 +30,7 @@ class MapControllerImpl implements MapController {
     if (!bounds.isValid) {
       throw ("Bounds are not valid.");
     }
-    return _getBoundsCenterZoom(bounds, options);
+    return _state.getBoundsCenterZoom(bounds, options);
   }
   
   void fitBounds(
@@ -134,7 +134,7 @@ class MapState {
     if (!bounds.isValid) {
       throw ("Bounds are not valid.");
     }
-    var target = _getBoundsCenterZoom(bounds, options);
+    var target = getBoundsCenterZoom(bounds, options);
     move(target.center, target.zoom);
   }
 
@@ -161,7 +161,7 @@ class MapState {
     );
   }
 
-  CenterZoom _getBoundsCenterZoom(
+  CenterZoom getBoundsCenterZoom(
       LatLngBounds bounds, FitBoundsOptions options) {
     var paddingTL = Point<double>(options.padding.left, options.padding.top);
     var paddingBR =
