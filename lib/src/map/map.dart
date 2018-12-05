@@ -22,8 +22,8 @@ class MapControllerImpl implements MapController {
     }
   }
 
-  void move(LatLng center, double zoom) {
-    _state.move(center, zoom);
+  void move(LatLng center, double zoom, {bool hasGesture = false}) {
+    _state.move(center, zoom, hasGesture: hasGesture);
   }
 
   CenterZoom fitBoundsTarget(LatLngBounds bounds, {FitBoundsOptions options}) {
@@ -93,7 +93,7 @@ class MapState {
     _onMoveSink.close();
   }
 
-  void move(LatLng center, double zoom) {
+  void move(LatLng center, double zoom, {hasGesture = false}) {
     zoom = _fitZoomToBounds(zoom);
     final mapMoved = center != _lastCenter || zoom != _zoom;
 
@@ -112,7 +112,7 @@ class MapState {
         center: center,
         bounds: bounds,
         zoom: zoom,
-      ));
+      ), hasGesture);
     }
   }
 
