@@ -108,11 +108,13 @@ class MapState {
     _onMoveSink.add(null);
 
     if (options.onPositionChanged != null) {
-      options.onPositionChanged(new MapPosition(
-        center: center,
-        bounds: bounds,
-        zoom: zoom,
-      ), hasGesture);
+      options.onPositionChanged(
+          new MapPosition(
+            center: center,
+            bounds: bounds,
+            zoom: zoom,
+          ),
+          hasGesture);
     }
   }
 
