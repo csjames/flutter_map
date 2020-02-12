@@ -16,4 +16,4 @@ dependencies:
   positioned_tap_detector: ^1.0.1
   transparent_image: ^0.1.0
   async: ^2.0.8
-  flutter_image: ^2.0.0
+  flutter_image: ^3.0.0
